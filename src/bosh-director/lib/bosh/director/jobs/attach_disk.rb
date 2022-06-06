@@ -89,6 +89,7 @@ module Bosh::Director
         end
 
         if instance.state == 'stopped'
+          # TODO: GX-7317: REVIEW: Why is `instance.deployment.tags` only passed here (when instance.state == 'stopped')? How/when are the tags applied to the disk/volume when when instance.state != 'stopped'?
           @disk_manager.attach_disk(disk, instance.deployment.tags)
         end
       end

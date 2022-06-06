@@ -131,13 +131,16 @@ module Bosh::Director
       end
 
       def update_vm_disk_metadata
+        # TODO: GX-7317: REVIEW: Is it possible for the 3 lines below to permanently prevent a disk's tags from getting updated (even though they should get updated)?
         return unless instance_plan.changes.include?(:tags)
         return if instance_plan.new? || @needs_recreate
         return if instance.state == 'detached' # disks will get a metadata update when attaching again
 
         @logger.debug("Updating instance #{instance} VM and disk metadata with tags")
+        # TODO: GX-7317: REVIEW: Does the line below include the tags from runtime-config?
         tags = instance_plan.tags
         cloud = CloudFactory.create.get(instance.model.active_vm.cpi)
+        # TODO: GX-7317: REVIEW: Why does the line below affect only the `managed_persistent_disk`? Why not ephemeral and root disks?
         MetadataUpdater.build.update_disk_metadata(cloud, instance.model.managed_persistent_disk, tags) if instance.model.managed_persistent_disk
         MetadataUpdater.build.update_vm_metadata(instance.model, instance.model.active_vm, tags)
       end
