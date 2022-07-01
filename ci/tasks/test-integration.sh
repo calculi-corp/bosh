@@ -33,6 +33,7 @@ collation-server = utf8_unicode_ci
 init-connect='SET NAMES utf8'
 character-set-server = utf8
 sql-mode="STRICT_TRANS_TABLES"
+skip-log-bin
 max_connections = 1024' >> /etc/mysql/my.cnf
 
     if [ "$DB_TLS" = true ]; then
@@ -120,6 +121,12 @@ pushd bosh-src/src
   gem install -f bundler
   bundle update --bundler
   bundle install --local
+  
+  # Install netaddr, needed for dummy cpi
+  pushd vendor/cache/netaddr-rb-*
+    gem build *.gemspec
+    gem install *.gem
+  popd
 
   set +e
   bundle exec rake --trace spec:integration

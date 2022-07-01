@@ -4,7 +4,7 @@ name: director
 dependencies:
 - libpq
 - mysql
-- ruby-3.1.0-r0.81.0
+- ruby-3.1
 
 files:
 - bosh-director/**/*
@@ -15,3 +15,4 @@ files:
 - vendor/cache/*.gem
 - vendor/cache/eventmachine-*/**
 - vendor/cache/extensions/**
+- vendor/cache/netaddr-rb-*/**

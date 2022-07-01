@@ -50,6 +50,7 @@ describe 'director.yml.erb' do
         'enable_post_deploy' => true,
         'enable_nats_delivered_templates' => false,
         'enable_cpi_resize_disk' => false,
+        'allow_errands_on_stopped_instances' => false,
         'generate_vm_passwords' => false,
         'remove_dev_tools' => false,
         'log_level' => 'debug',
@@ -341,6 +342,22 @@ describe 'director.yml.erb' do
         end
       end
 
+      describe 'allow_errands_on_stopped_instances' do
+        it 'defaults to false' do
+          expect(parsed_yaml['allow_errands_on_stopped_instances']).to be_falsey
+        end
+
+        context 'when set to true' do
+          before do
+            merged_manifest_properties['director']['allow_errands_on_stopped_instances'] = true
+          end
+
+          it 'parses correctly' do
+            expect(parsed_yaml['allow_errands_on_stopped_instances']).to be_truthy
+          end
+        end
+      end
+
       describe 'enable_nats_delivered_templates' do
         context 'when set to true' do
           before do
@@ -459,7 +476,7 @@ describe 'director.yml.erb' do
       end
 
       it 'should contain the version' do
-        expect(parsed_yaml['version']).to eq('272.2.0')
+        expect(parsed_yaml['version']).to eq('272.6.0')
       end
 
       it 'should contain the audit log path' do

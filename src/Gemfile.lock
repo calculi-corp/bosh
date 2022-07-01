@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/dspinhirne/netaddr-rb
+  revision: c7a7de39b7e1126aef11821f98970db18582948b
+  tag: 1.5.3
+  specs:
+    netaddr (1.5.3)
+
+GIT
   remote: https://github.com/eventmachine/eventmachine
   revision: abe347b824e36453f8a013fbe14323342a2ac8de
   ref: abe34
@@ -43,16 +50,16 @@ PATH
       logging (~> 2.2.2)
       membrane (~> 1.1.0)
       nats-pure (~> 0.6.2)
-      netaddr (~> 1.5.0)
+      netaddr (~> 1.5.3.dev.1)
       openssl
-      prometheus-client (~> 1.0.0)
+      prometheus-client (~> 2.1.0)
       puma
       rack-test (~> 0.6.2)
       rake (~> 13.0.3)
       rufus-scheduler (~> 3.0)
       semi_semantic (~> 1.2.0)
       sequel (~> 5.29.0)
-      sinatra (~> 2.0.2)
+      sinatra (~> 2.2.0)
       sys-filesystem (~> 1.4.1)
       talentbox-delayed_job_sequel (~> 4.3)
       thin
@@ -72,7 +79,7 @@ PATH
       nats-pure (~> 0.6.2)
       openssl
       riemann-client (~> 0.2.6)
-      sinatra (~> 2.0.2)
+      sinatra (~> 2.2.0)
       thin
 
 PATH
@@ -100,7 +107,6 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.0)
-    backports (3.16.0)
     bcrypt (3.1.16)
     beefcake (1.0.0)
     blue-shell (0.3.0)
@@ -175,7 +181,6 @@ GEM
     mysql2 (0.5.3)
     nats-pure (0.6.2)
     net-ssh (5.2.0)
-    netaddr (1.5.1)
     netrc (0.11.0)
     nio4r (2.5.8)
     openssl (3.0.0)
@@ -185,7 +190,7 @@ GEM
     parser (2.7.0.2)
       ast (~> 2.4.0)
     pg (1.2.2)
-    prometheus-client (1.0.0)
+    prometheus-client (2.1.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -199,8 +204,8 @@ GEM
     puma (5.6.4)
       nio4r (~> 2.0)
     raabro (1.4.0)
-    rack (2.2.3)
-    rack-protection (2.0.8.1)
+    rack (2.2.3.1)
+    rack-protection (2.2.0)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -250,17 +255,16 @@ GEM
       fugit (~> 1.1, >= 1.1.6)
     semi_semantic (1.2.0)
     sequel (5.29.0)
-    sinatra (2.0.8.1)
+    sinatra (2.2.0)
       mustermann (~> 1.0)
-      rack (~> 2.0)
-      rack-protection (= 2.0.8.1)
+      rack (~> 2.2)
+      rack-protection (= 2.2.0)
       tilt (~> 2.0)
-    sinatra-contrib (2.0.8.1)
-      backports (>= 2.8.2)
+    sinatra-contrib (2.2.0)
       multi_json
       mustermann (~> 1.0)
-      rack-protection (= 2.0.8.1)
-      sinatra (= 2.0.8.1)
+      rack-protection (= 2.2.0)
+      sinatra (= 2.2.0)
       tilt (~> 2.0)
     slop (3.6.0)
     sqlite3 (1.4.2)
@@ -318,6 +322,7 @@ DEPENDENCIES
   mysql2
   nats-pure (~> 0.6.2)
   net-ssh
+  netaddr (~> 1.5.3.dev.1)!
   openssl
   parallel_tests (~> 2.0)
   pg
@@ -332,8 +337,8 @@ DEPENDENCIES
   rubocop
   rubocop-git
   ruby-prof (= 0.17.0)
-  sinatra (>= 2.0.2)
-  sinatra-contrib (>= 2.0.2)
+  sinatra (>= 2.2.0)
+  sinatra-contrib (>= 2.2.0)
   sqlite3
   talentbox-delayed_job_sequel (~> 4.3)
   timecop (~> 0.9.4)
@@ -341,7 +346,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 3.1.0p0
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.3.5
