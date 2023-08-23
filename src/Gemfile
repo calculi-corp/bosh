@@ -58,7 +58,7 @@ group :development, :test do
 
   # for director
   gem 'machinist', '~>1.0'
-  gem 'factory_bot', '~> 6.2'
+  gem 'factory_bot', '~> 6.2', '>= 6.2.1'
 
   # for root level specs
   gem 'nats-pure', '~>0.6.2'
